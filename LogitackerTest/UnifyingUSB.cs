@@ -66,6 +66,9 @@ namespace LogitackerClient
 
                 if (inrep.Length == 20 && (inrep[2] == 0xbb || inrep[2] == 0xba)) { //ToDo: replace with full frame validation
                     //Console.WriteLine(String.Format("In  {0}", Helper.ByteArrayToString(inrep)));
+
+                    //copy over device IDX to outrep, to respond on proper RF address
+                    outrep[1] = inrep[1];
                     
                     byte bitmaskIn = inrep[3];
                     byte inPaylen = (byte) ((bitmaskIn & 0xf0) >> 4);
