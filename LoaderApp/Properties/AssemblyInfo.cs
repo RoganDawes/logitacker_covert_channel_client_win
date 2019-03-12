@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Allgemeine Informationen über eine Assembly werden über die folgenden 
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
-[assembly: AssemblyTitle("Logitacker")]
+[assembly: AssemblyTitle("LoaderApp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PoC - Unifying covert channel client")]
-[assembly: AssemblyCopyright("MaMe82")]
+[assembly: AssemblyProduct("LoaderApp")]
+[assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Die folgende GUID bestimmt die ID der Typbibliothek, wenn dieses Projekt für COM verfügbar gemacht wird
-[assembly: Guid("803ff632-e3fa-4eef-a514-ec77c600f898")]
+[assembly: Guid("7166b4ab-4410-4aed-90b2-40b717222700")]
 
 // Versionsinformationen für eine Assembly bestehen aus den folgenden vier Werten:
 //
