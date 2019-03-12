@@ -40,6 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="loadps.ps1" />
+    <None Include="runner.ps1" />
+    <None Include="runner_net20.ps1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LogitackerTest\LogitackerClient.csproj">

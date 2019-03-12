@@ -19,14 +19,13 @@ namespace LogitackerClient
         {
             this.OutputQueue = Queue.Synchronized(new Queue());
             this.processStartInfo = new ProcessStartInfo(filename, args);
-            this.processStartInfo.CreateNoWindow = false;
+            this.processStartInfo.CreateNoWindow = true;
 
-            {
-                this.processStartInfo.UseShellExecute = false;
-                this.processStartInfo.RedirectStandardInput = true;
-                this.processStartInfo.RedirectStandardOutput = true;
-                this.processStartInfo.RedirectStandardError = true;
-            }
+            this.processStartInfo.UseShellExecute = false;
+            this.processStartInfo.RedirectStandardInput = true;
+            this.processStartInfo.RedirectStandardOutput = true;
+            if (withStdErr)  this.processStartInfo.RedirectStandardError = true;
+            
 
             this.process = new Process();
             this.process.StartInfo = this.processStartInfo;
