@@ -9,12 +9,14 @@ namespace LogitackerClient
 
     class UnifyingUSB
     {
-        public FileStream hidpp_short_file;
+        //public FileStream hidpp_short_file;
         public FileStream hidpp_long_file;
-        public FileStream dj_long_file;
+        //public FileStream dj_long_file;
 
         public const UInt16 VID = 0x046d;
-        public const UInt16 PID = 0xc52b;
+        public const UInt16 PID_UNIFYING = 0xc52b;
+        public const UInt16 PID_CU0016_SPOTLIGHT = 0xc53e;
+        public const UInt16 PID_CU0016_R500 = 0xc540;
 
         public const UInt16 HIDPP_SHORT_LENGTH = 7;
         public const UInt16 HIDPP_LONG_LENGTH = 20;
@@ -27,9 +29,10 @@ namespace LogitackerClient
         {
             
 
-            this.hidpp_short_file = Device.Open(VID, PID, HIDPP_SHORT_LENGTH);
-            this.hidpp_long_file = Device.Open(VID, PID, HIDPP_LONG_LENGTH);
-            this.dj_long_file = Device.Open(VID, PID, DJ_LONG_LENGTH);
+            //this.hidpp_short_file = Device.Open(VID, PID, HIDPP_SHORT_LENGTH);
+            this.hidpp_long_file = Device.Open(VID, PID_UNIFYING, HIDPP_LONG_LENGTH);
+            if (this.hidpp_long_file == null) this.hidpp_long_file = Device.Open(VID, PID_CU0016_SPOTLIGHT, HIDPP_LONG_LENGTH); // failover to spotlight dongle
+            //this.dj_long_file = Device.Open(VID, PID, DJ_LONG_LENGTH);
 
         }
 
