@@ -1,4 +1,4 @@
-﻿$tdll = [System.IO.File]::ReadAllBytes("C:\Users\XMG-U705\Documents\Visual Studio 2015\Projects\LogitackerTest\LogitackerTest\bin\Release\LogitackerTest.dll")
+﻿$tdll = [System.IO.File]::ReadAllBytes("C:\Users\XMG-U705\Documents\Visual Studio 2015\Projects\LogitackerTest\LoaderApp\bin\Release\LogitackerTest.dll")
 
 
 $zipos = New-Object System.IO.MemoryStream

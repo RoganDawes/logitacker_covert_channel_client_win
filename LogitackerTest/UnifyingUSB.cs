@@ -14,13 +14,15 @@ namespace LogitackerClient
         //public FileStream dj_long_file;
 
         public const UInt16 VID = 0x046d;
-        public const UInt16 PID_UNIFYING = 0xc52b;
-        public const UInt16 PID_CU0016_SPOTLIGHT = 0xc53e;
-        public const UInt16 PID_CU0016_R500 = 0xc540;
+        public const UInt16 PID_UNIFYING            = 0xc52b; //cu0007, cu0008, cu0012
+        public const UInt16 PID_CU0016_R500         = 0xc540; //cu0016
+        public const UInt16 PID_CU0016_SPOTLIGHT    = 0xc53e; //R-R0011
+        public const UInt16 PID_CU0007_G700         = 0xc531; //G700/G700s
+        public const UInt16 PID_CU0008_LIGHTSPEED   = 0xc539; //G700/G700s
 
-        public const UInt16 HIDPP_SHORT_LENGTH = 7;
+        //public const UInt16 HIDPP_SHORT_LENGTH = 7;
         public const UInt16 HIDPP_LONG_LENGTH = 20;
-        public const UInt16 DJ_LONG_LENGTH = 32;
+        //public const UInt16 DJ_LONG_LENGTH = 32;
 
        
         public RProc rProc;
@@ -32,6 +34,8 @@ namespace LogitackerClient
             //this.hidpp_short_file = Device.Open(VID, PID, HIDPP_SHORT_LENGTH);
             this.hidpp_long_file = Device.Open(VID, PID_UNIFYING, HIDPP_LONG_LENGTH);
             if (this.hidpp_long_file == null) this.hidpp_long_file = Device.Open(VID, PID_CU0016_SPOTLIGHT, HIDPP_LONG_LENGTH); // failover to spotlight dongle
+            if (this.hidpp_long_file == null) this.hidpp_long_file = Device.Open(VID, PID_CU0008_LIGHTSPEED, HIDPP_LONG_LENGTH); // failover to LIGHTSPEED
+            if (this.hidpp_long_file == null) this.hidpp_long_file = Device.Open(VID, PID_CU0007_G700, HIDPP_LONG_LENGTH); // failover to G700
             //this.dj_long_file = Device.Open(VID, PID, DJ_LONG_LENGTH);
 
         }
