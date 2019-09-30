@@ -26,6 +26,7 @@ namespace LogitackerClient
 
        
         public RProc rProc;
+        Boolean IsLightspeed = false;
 
         public UnifyingUSB()
         {
@@ -35,6 +36,7 @@ namespace LogitackerClient
             this.hidpp_long_file = Device.Open(VID, PID_UNIFYING, HIDPP_LONG_LENGTH);
             if (this.hidpp_long_file == null) this.hidpp_long_file = Device.Open(VID, PID_CU0016_SPOTLIGHT, HIDPP_LONG_LENGTH); // failover to spotlight dongle
             if (this.hidpp_long_file == null) this.hidpp_long_file = Device.Open(VID, PID_CU0008_LIGHTSPEED, HIDPP_LONG_LENGTH); // failover to LIGHTSPEED
+            this.IsLightspeed = true;
             if (this.hidpp_long_file == null) this.hidpp_long_file = Device.Open(VID, PID_CU0007_G700, HIDPP_LONG_LENGTH); // failover to G700
             //this.dj_long_file = Device.Open(VID, PID, DJ_LONG_LENGTH);
 
@@ -166,7 +168,7 @@ namespace LogitackerClient
 
                 // delay to avoid flooding USB report queues faster than RF is working and
                 // keep room for real device communication
-                Thread.Sleep(4);
+                if (!this.IsLightspeed) Thread.Sleep(4);
             }
 
         }
