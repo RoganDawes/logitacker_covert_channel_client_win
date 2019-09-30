@@ -20,7 +20,7 @@ $lenb64 = $scriptb64.Length
 
 
 
-$scriptb64 | Out-File base64.ps1
+$scriptb64 | Out-File base64_v2.ps1
 
 
 # decompress
